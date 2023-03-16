@@ -1,0 +1,5 @@
+import 'package:dogs_list/data/model/breed_model.dart';
+
+abstract class NetworkService{
+  Future<Map<String, dynamic>> fetchBreeds();
+}
