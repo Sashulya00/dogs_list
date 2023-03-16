@@ -3,7 +3,7 @@ import 'package:dogs_list/business_logic/bloc/breed_list_bloc.dart';
 import 'package:dogs_list/business_logic/bloc/breed_state.dart';
 import 'package:dogs_list/data/repository/repository_implementation.dart';
 import 'package:dogs_list/data/services/network_services_impl.dart';
-import 'package:dogs_list/widget/breed_widget.dart';
+import 'package:dogs_list/presentation/widget/breed_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
