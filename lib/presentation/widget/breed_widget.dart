@@ -15,7 +15,7 @@ class BreedWidget extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const DogsImagesScreen()),
+          MaterialPageRoute(builder: (context) => DogsImagesScreen(breed: breed,)),
         );
       },
       child: Text(
