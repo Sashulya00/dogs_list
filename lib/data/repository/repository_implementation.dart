@@ -24,4 +24,10 @@ class RepositoryImpl implements Repository {
     }
     return myDogList;
   }
+
+  @override
+  Future<List<String>> fetchImages(Breed breed) async {
+    final imageList = await networkService.fetchImages(breed);
+    return imageList;
+  }
 }

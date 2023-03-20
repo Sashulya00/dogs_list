@@ -12,6 +12,7 @@ class NetworkServiceImpl implements NetworkService {
   static const _messageKey = 'message';
   static const _countImages = 10;
 
+
   @override
   Future<Map<String, dynamic>> fetchBreeds() async {
     final url = Uri.parse(_dogListEndpointUrl);
@@ -19,6 +20,16 @@ class NetworkServiceImpl implements NetworkService {
     Map<String, dynamic> responseMap = json.decode(response.body);
     final messageMap = Map<String, dynamic>.from(responseMap[_messageKey]);
     return messageMap;
+  }
+
+
+  @override
+  Future<List<String>> fetchImages(Breed breed) async {
+    final imgUrl = Uri.parse('https://dog.ceo/api/breed/${breed.breed}/images/random/$_countImages');
+    var response = await get(imgUrl);
+    Map<String, dynamic> responseMap = json.decode(response.body);
+    final imageList = List<String>.from(responseMap[_messageKey]);
+    return imageList;
   }
 
 
