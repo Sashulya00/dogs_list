@@ -2,7 +2,7 @@ class Breed {
   final String breed;
   final String? subBreed;
 
-  Breed(this.breed, {this.subBreed, });
+  Breed(this.breed, {this.subBreed});
 
   String get fullName => '$breed ${subBreed ?? ''}';
 
@@ -11,6 +11,4 @@ class Breed {
     return 'Breed{breed: $breed, subBreed: $subBreed}';
   }
 }
-
-// DTO - Data Transfer Object
 
