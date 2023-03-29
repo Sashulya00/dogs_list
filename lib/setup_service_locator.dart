@@ -4,7 +4,6 @@ import 'package:dogs_list/data/services/network_services.dart';
 import 'package:dogs_list/data/services/network_services_impl.dart';
 import 'package:get_it/get_it.dart';
 
-
 final getIt = GetIt.instance;
 
 void setupServiceLocator() {
