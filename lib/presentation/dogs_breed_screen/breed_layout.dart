@@ -1,68 +1,41 @@
-import 'package:dogs_list/business_logic/bloc/breed_event.dart';
-import 'package:dogs_list/business_logic/bloc/breed_list_bloc.dart';
-import 'package:dogs_list/business_logic/bloc/breed_state.dart';
-import 'package:dogs_list/data/repository/repository_implementation.dart';
-import 'package:dogs_list/data/services/network_services_impl.dart';
+import 'package:dogs_list/business_logic/provider/fetchbreed_provider.dart';
 import 'package:dogs_list/presentation/widget/breed_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 class BreedLayout extends StatefulWidget {
-  const BreedLayout({Key? key}) : super(key: key);
+  const BreedLayout({super.key});
 
   @override
   State<BreedLayout> createState() => _BreedLayoutState();
 }
 
 class _BreedLayoutState extends State<BreedLayout> {
-  final repo = RepositoryImpl(NetworkServiceImpl());
+  static const thickness = 4.0;
+  static const title = 'Dog List Screen';
 
   @override
   void initState() {
-    context.read<DogListBloc>().add(LoadingDogsEvent());
+    final provider = context.read<BreedProvider>();
+    provider.fetchBreeds();
     super.initState();
   }
 
-  final nameOfScreen = "Dogs List Screen";
-
-  final double heightOption = 60;
-
-  final double thicknessOption = 1;
-
-
   @override
   Widget build(BuildContext context) {
-
+    final breedList = context.watch<BreedProvider>().breedList;
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text(nameOfScreen),
+          title: const Text(title),
           backgroundColor: Colors.black,
         ),
-        body: BlocBuilder<DogListBloc, BreedState>(
-          builder: (context, state) {
-            if (state is InitialState){
-              return const Center(child: Text("Waiting"));
-            }else
-            if (state is LoadingState){
-              return const Center(child: CircularProgressIndicator());
-            }else
-            if (state is ErrorState) {
-              return const Center (child: Text("error"));
-            }else
-            if (state is LoadedState){
-              return ListView.separated(
-                  itemBuilder:  (_, index) => BreedWidget(state.breedList[index]),
-                  separatorBuilder: (_, __) => const Divider(thickness: 4,),
-                  itemCount: (state.breedList.length));
-            }else {
-              throw Exception('unprocessed state $state in DogListLayout');
-            }
-          },
+        body: ListView.separated(
+          itemBuilder: (_, index) => BreedWidget(breedList[index]),
+          separatorBuilder: (_, __) => const Divider(thickness: thickness),
+          itemCount: breedList.length,
         ),
       ),
-
     );
   }
 }
