@@ -1,6 +1,5 @@
-abstract class DogEvent {
 
-}
+abstract class DogEvent {}
 
 class LoadingDogsEvent extends DogEvent {
 

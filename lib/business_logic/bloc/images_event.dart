@@ -1,10 +1,10 @@
 import 'package:dogs_list/data/model/breed_model.dart';
 
-abstract class ImageEvent {
-
-}
+abstract class ImageEvent {}
 
 class LoadingImageEvent extends ImageEvent {
+
   LoadingImageEvent(this.breed);
-    final Breed breed;
+
+  final Breed breed;
 }

@@ -1,5 +1,5 @@
-import 'package:dogs_list/business_logic/bloc/image_event.dart';
 import 'package:dogs_list/business_logic/bloc/image_state.dart';
+import 'package:dogs_list/business_logic/bloc/images_event.dart';
 import 'package:dogs_list/data/repository/repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,5 +18,6 @@ class ImageListBloc extends Bloc<ImageEvent, ImageState> {
       emit(LoadedState(images));
     });
   }
+
   final Repository repository;
 }

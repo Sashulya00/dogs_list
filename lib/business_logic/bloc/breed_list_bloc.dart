@@ -18,5 +18,6 @@ class DogListBloc extends Bloc<DogEvent, BreedState> {
       emit(LoadedState(breeds));
     });
   }
+
   final Repository repository;
 }

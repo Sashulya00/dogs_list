@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DogsImagesScreen extends StatelessWidget {
-  const DogsImagesScreen({Key? key, required this.breed}) : super(key: key);
+  const DogsImagesScreen({super.key, required this.breed});
   final Breed breed;
   @override
   Widget build(BuildContext context) {

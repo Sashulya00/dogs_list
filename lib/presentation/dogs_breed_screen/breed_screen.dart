@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 
 class BreedScreen extends StatelessWidget {
-  const BreedScreen({Key? key}) : super(key: key);
+  const BreedScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

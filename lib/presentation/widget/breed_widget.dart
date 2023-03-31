@@ -3,10 +3,7 @@ import 'package:dogs_list/presentation/dogs_image_screen/dogs_image_screen.dart'
 import 'package:flutter/material.dart';
 
 class BreedWidget extends StatelessWidget {
-  const BreedWidget(
-    this.breed, {
-    Key? key,
-  }) : super(key: key);
+  const BreedWidget(this.breed, {super.key});
   final Breed breed;
 
   @override
@@ -15,7 +12,11 @@ class BreedWidget extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => DogsImagesScreen(breed: breed,)),
+          MaterialPageRoute(
+            builder: (context) => DogsImagesScreen(
+              breed: breed,
+            ),
+          ),
         );
       },
       child: Text(

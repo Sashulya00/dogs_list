@@ -1,13 +1,12 @@
-import 'package:dogs_list/business_logic/bloc/image_event.dart';
 import 'package:dogs_list/business_logic/bloc/image_list_bloc.dart';
 import 'package:dogs_list/business_logic/bloc/image_state.dart';
+import 'package:dogs_list/business_logic/bloc/images_event.dart';
 import 'package:dogs_list/data/model/breed_model.dart';
-import 'package:dogs_list/presentation/widget/breed_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DogsImagesLayout extends StatefulWidget {
-  const DogsImagesLayout({Key? key, required this.breed}) : super(key: key);
+  const DogsImagesLayout({super.key, required this.breed});
   final Breed breed;
   @override
   State<DogsImagesLayout> createState() => _DogsImagesLayoutState();

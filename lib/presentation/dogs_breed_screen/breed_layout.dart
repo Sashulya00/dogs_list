@@ -7,9 +7,8 @@ import 'package:dogs_list/presentation/widget/breed_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 class BreedLayout extends StatefulWidget {
-  const BreedLayout({Key? key}) : super(key: key);
+  const BreedLayout({super.key});
 
   @override
   State<BreedLayout> createState() => _BreedLayoutState();
@@ -24,16 +23,12 @@ class _BreedLayoutState extends State<BreedLayout> {
     super.initState();
   }
 
-  final nameOfScreen = "Dogs List Screen";
-
   final double heightOption = 60;
-
   final double thicknessOption = 1;
-
+  final nameOfScreen = "Dogs List Screen";
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -42,27 +37,23 @@ class _BreedLayoutState extends State<BreedLayout> {
         ),
         body: BlocBuilder<DogListBloc, BreedState>(
           builder: (context, state) {
-            if (state is InitialState){
+            if (state is InitialState) {
               return const Center(child: Text("Waiting"));
-            }else
-            if (state is LoadingState){
+            } else if (state is LoadingState) {
               return const Center(child: CircularProgressIndicator());
-            }else
-            if (state is ErrorState) {
-              return const Center (child: Text("error"));
-            }else
-            if (state is LoadedState){
+            } else if (state is ErrorState) {
+              return const Center(child: Text("error"));
+            } else if (state is LoadedState) {
               return ListView.separated(
-                  itemBuilder:  (_, index) => BreedWidget(state.breedList[index]),
+                  itemBuilder: (_, index) => BreedWidget(state.breedList[index]),
                   separatorBuilder: (_, __) => const Divider(thickness: 4,),
                   itemCount: (state.breedList.length));
-            }else {
+            } else {
               throw Exception('unprocessed state $state in DogListLayout');
             }
           },
         ),
       ),
-
     );
   }
 }

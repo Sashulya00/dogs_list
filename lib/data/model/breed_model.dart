@@ -11,6 +11,3 @@ class Breed {
     return 'Breed{breed: $breed, subBreed: $subBreed}';
   }
 }
-
-// DTO - Data Transfer Object
-
